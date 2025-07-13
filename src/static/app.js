@@ -20,17 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const spotsLeft = details.max_participants - details.participants.length;
 
-        // Build participants list HTML with improved formatting
+        // Build participants list HTML with improved formatting (CSS classes only)
         let participantsHTML = "";
         if (details.participants.length > 0) {
           participantsHTML = `
-            <div class="participants-section" style="margin-top: 10px;">
-              <strong style="display:block; margin-bottom: 4px;">Participants:</strong>
-              <ul class="participants-list" style="list-style: none; padding-left: 0; margin: 0;">
+            <div class="participants-section">
+              <strong class="participants-title">Participants:</strong>
+              <ul class="participants-list">
                 ${details.participants.map(p => `
-                  <li style="margin-bottom:2px; display: flex; align-items: center;">
+                  <li class="participant-item">
                     <span>${p}</span>
-                    <button class="delete-participant" data-activity="${name}" data-email="${p}" title="Remove" style="margin-left:8px; background:none; border:none; color:#c62828; cursor:pointer; font-size:16px;">
+                    <button class="delete-participant" data-activity="${name}" data-email="${p}" title="Remove">
                       &#128465;
                     </button>
                   </li>
@@ -40,9 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
           `;
         } else {
           participantsHTML = `
-            <div class="participants-section" style="margin-top: 10px;">
-              <strong style="display:block; margin-bottom: 4px;">Participants:</strong>
-              <p class="no-participants" style="padding-left: 20px; color: #888; margin: 0;">No one has signed up yet.</p>
+            <div class="participants-section">
+              <strong class="participants-title">Participants:</strong>
+              <p class="no-participants">No one has signed up yet.</p>
             </div>
           `;
         }
